@@ -15,10 +15,16 @@ export function fetchPosts() {
     };
   }
 
-  export function createPost(values) {
+  // programmatic navigation, i.e. not
+  // for cases when user clicks a link (see callback)
+  // + making sure navigation happens
+  // only after new post has been created
+  // & we got back the response:
+  export function createPost(values, callback) {
     const request = axios
       .post(`${ROOT_URL}/posts${API_KEY}`, values)
-  
+      .then(() => callback());
+
     return {
       type: CREATE_POST,
       payload: request

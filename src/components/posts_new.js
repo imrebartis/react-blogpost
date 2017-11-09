@@ -23,6 +23,8 @@ class PostsNew extends Component {
         );
       }
 
+      // programmatic navigation (i.e. not
+      // for cases when user clicks a link):
       onSubmit(values) {
           this.props.createPost(values, () => {
           this.props.history.push("/");
