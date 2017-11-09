@@ -4,9 +4,12 @@ import { Field, reduxForm } from "redux-form";
 class PostsNew extends Component {
     renderField(field) {
         return (
-          <div>
+          <div className="form-group">
             <label>{field.label}</label>
-            <input {...field.input} />
+            <input
+                className="form-control"
+                {...field.input}
+            />
           </div>
         );
       }
